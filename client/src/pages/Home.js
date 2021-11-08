@@ -5,7 +5,7 @@ const Home = () => {
       <>
         <div className="h-screen w-screen">
           <div className="flex justify-center mt-5">
-            <div className="h-30 p-5 w-2/3 rounded-r-2xl rounded-l-xl rounded-b-xl border-l-2 border-r-2 border-b-2 shadow-xl">
+            <div className="h-30 p-5 w-5/6 rounded-r-2xl rounded-l-xl rounded-b-xl border-l-2 border-r-2 border-b-2 shadow-xl">
               <div className="flex justify-center font-bold text-3xl">
                 TSX PIZZERIAS
               </div>
