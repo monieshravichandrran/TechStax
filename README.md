@@ -1,1 +1,1 @@
-"# Techstax" 
+# Techstax
