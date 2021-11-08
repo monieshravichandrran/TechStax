@@ -1,3 +1,15 @@
 .pickup{
     padding: 0.27rem;
 }
+
+.box{
+    padding-top: 0.2rem;
+    padding-left: 0.6rem;
+}
+
+.rate{
+    font-family: 'Mulish';
+}
+.desc{
+    margin-left: 1.75rem;
+}

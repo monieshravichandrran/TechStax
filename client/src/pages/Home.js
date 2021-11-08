@@ -1,11 +1,13 @@
 import React from "react";
 import './styles/home.css'
+import { AiOutlinePlus} from "react-icons/ai"
+import FoodItem from "../component/FoodCard";
 const Home = () => {
     return (
       <>
         <div className="h-screen w-screen">
           <div className="flex justify-center mt-5">
-            <div className="h-30 p-5 w-5/6 rounded-r-2xl rounded-l-xl rounded-b-xl border-l-2 border-r-2 border-b-2 shadow-xl">
+            <div className="h-30 p-5 w-5/6 border-l-2 border-r-2 border-b-2 shadow-xl">
               <div className="flex justify-center font-bold text-3xl">
                 TSX PIZZERIAS
               </div>
@@ -28,6 +30,30 @@ const Home = () => {
                 <p>Menu Hours: 10:00am to 11:00pm</p>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center mt-5">
+            <div className="w-5/6 inline">
+              <div className="float-left inline font-bold">
+                <h1 className="inline cursor-pointer">Your Order</h1>
+              </div>
+              <div className="flex float-right font-bold inline text-red-500">
+                <h1 className="cursor-pointer">Add items <AiOutlinePlus className="inline" /></h1>
+              </div>
+            </div>
+          </div>
+          <div className="mt-10">
+            <FoodItem pizzaname={'Margarita A'}
+              pizzarate={412.00}
+              pizzaqty={2}
+              pizzadescription={"crab & cucumber"} />
+            <FoodItem pizzaname={'Margarita B'}
+              pizzarate={112.00}
+              pizzaqty={1}
+              pizzadescription={"tuna & cucumber"} />
+            <FoodItem pizzaname={'Margarita B'}
+              pizzarate={112.00}
+              pizzaqty={3}
+              pizzadescription={"smoked salmon over rice"} />
           </div>
         </div>
       </>
