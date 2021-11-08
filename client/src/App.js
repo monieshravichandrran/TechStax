@@ -1,15 +1,14 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import Cart from "./pages/Cart"
 import Home from "./pages/Home"
-import Add from "./pages/Add"
 const App = () => {
   return (
     <>
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/add" component={Add} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
       </Router>
     </>
