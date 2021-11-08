@@ -55,6 +55,64 @@ const Home = () => {
               pizzaqty={3}
               pizzadescription={"smoked salmon over rice"} />
           </div>
+          <div className="flex justify-center text-xl font-bold">
+              <div className="w-5/6">
+                <div className="flex float-left">
+                  <h1 className="sum">Summary</h1>
+                </div>
+              </div>
+          </div>
+          <div className="flex justify-center text-lg">
+            <div className="w-5/6">
+              <div className="flex float-left">
+                <h1>Subtotal</h1>
+              </div>
+              <div className="flex float-right">
+                <h1>&#8377; 1760.00</h1>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center text-lg">
+            <div className="w-5/6">
+              <div className="flex float-left">
+                <h1>Discount</h1>
+              </div>
+              <div className="flex float-right">
+                <h1 className="text-green-500">- &#8377; 759.50</h1>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center text-lg">
+            <div className="w-5/6">
+              <div className="flex float-left">
+                <h1>Delivery Fee</h1>
+              </div>
+              <div className="flex float-right">
+                <h1>&#8377; 12.00</h1>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center text-lg">
+            <div className="w-5/6">
+              <div className="flex float-left">
+                <h1>Taxes</h1>
+              </div>
+              <div className="flex float-right">
+                <h1>&#8377; 46.15</h1>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center text-xl">
+            <div className="w-5/6">
+              <div className="flex float-left">
+                <h1 className="font-bold">Total</h1>
+              </div>
+              <div className="flex float-right font-bold">
+                <h1>&#8377; 1058.65</h1>
+              </div>
+            </div>
+          </div>
+          <button className="butto bg-black w-full h-10 text-white font-mulish font-bold">PLACE ORDER</button>
         </div>
       </>
     )

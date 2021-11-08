@@ -13,3 +13,11 @@
 .desc{
     margin-left: 1.75rem;
 }
+.butto{
+    position: absolute;
+    bottom: 0px;
+}
+.sum{
+    border-bottom: 5px solid red;
+    width:4.5em;
+}
