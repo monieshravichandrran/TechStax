@@ -35,7 +35,8 @@ const Home = () => {
                 item4: m4,
                 rate4: r4,
                 item5: m5,
-                rate5: r5
+                rate5: r5,
+                subtotal:m1*r1+m2*r2+m3*r3+m4*r4+m5*r5
             }
         })
         history.push("/cart")
