@@ -112,7 +112,7 @@ const Cart = () => {
                 <h1>Subtotal</h1>
               </div>
               <div className="flex float-right">
-                <h1>&#8377; {Subtotal}</h1>
+                <h1>&#8377; {Subtotal.toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ const Cart = () => {
                 <h1>Discount</h1>
               </div>
               <div className="flex float-right">
-                <h1 className="text-green-500">- &#8377; {Subtotal*0.15}</h1>
+                <h1 className="text-green-500">- &#8377; {Subtotal*0.15.toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -142,7 +142,7 @@ const Cart = () => {
                 <h1>Taxes</h1>
               </div>
               <div className="flex float-right">
-                <h1>&#8377; {Subtotal*0.20}</h1>
+                <h1>&#8377; {Subtotal*0.20.toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -152,7 +152,7 @@ const Cart = () => {
                 <h1 className="font-bold">Total</h1>
               </div>
               <div className="flex float-right font-bold">
-                <h1>&#8377; {Subtotal*1.05+20}</h1>
+                <h1>&#8377; {(Subtotal*1.05+20).toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -232,7 +232,7 @@ const Cart = () => {
                 <h1>Subtotal</h1>
               </div>
               <div className="flex float-right">
-                <h1>&#8377; {Subtotal}</h1>
+                <h1>&#8377; {Subtotal.toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -242,7 +242,7 @@ const Cart = () => {
                 <h1>Discount</h1>
               </div>
               <div className="flex float-right">
-                <h1 className="text-green-500">- &#8377; {Subtotal*0.15}</h1>
+                <h1 className="text-green-500">- &#8377; {Subtotal*0.15.toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -252,7 +252,7 @@ const Cart = () => {
                 <h1>Taxes</h1>
               </div>
               <div className="flex float-right">
-                <h1>&#8377; {Subtotal*0.20}</h1>
+                <h1>&#8377; {Subtotal*0.20.toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -262,7 +262,7 @@ const Cart = () => {
                 <h1 className="font-bold">Total</h1>
               </div>
               <div className="flex float-right font-bold">
-                <h1>&#8377; {1.05*Subtotal}</h1>
+                <h1>&#8377; {1.05*Subtotal.toFixed(2)}</h1>
               </div>
             </div>
           </div>
