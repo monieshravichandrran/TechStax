@@ -4,9 +4,11 @@ import marg2 from "../images/marg2.jpg"
 import marg3 from "../images/marg3.jpg"
 import marg4 from "../images/marg4.jpg"
 import marg5 from "../images/marg5.jpg"
+import { history } from "../history";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import {useSelector,useDispatch} from "react-redux"
 const Home = () => {
+    const dispatch = useDispatch()
     const [m1, setM1] = useState(0);
     const [m2, setM2] = useState(0);
     const [m3, setM3] = useState(0);
@@ -17,6 +19,25 @@ const Home = () => {
     const [r3, setR3] = useState(0);
     const [r4, setR4] = useState(0);
     const [r5, setR5] = useState(0);
+    const ClickHandler = (event) => {
+        event.preventDefault()
+        dispatch({
+            type: "ITEM",
+            payload: {
+                item1: m1,
+                rate1: r1,
+                item2: m2,
+                rate2: r2,
+                item3: m3,
+                rate3: r3,
+                item4: m4,
+                rate4: r4,
+                item5: m5,
+                rate5: r5
+            }
+        })
+        history.push("/cart")
+    }
     return (
         <>
             <div className="flex justify-center mt-5">
@@ -229,7 +250,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Link to="/cart"><button className="butto bg-black w-full h-10 text-white font-mulish font-bold">PLACE ORDER</button></Link>
+            <button className="butto bg-black w-full h-10 text-white font-mulish font-bold" onClick={ClickHandler}>PLACE ORDER</button>
         </>
     )
 }

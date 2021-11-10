@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import './styles/home.css'
 import { AiOutlinePlus } from "react-icons/ai"
 import FoodItem from "../component/FoodCard";
+import { useDispatch,useSelector } from "react-redux";
 import { Link } from "react-router-dom"
 const Cart = () => {
+  const state = useSelector((state) => state)
+  console.log(state)
   const [delivery, setDelivery] = useState(true);
   if (delivery)
     return (

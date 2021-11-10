@@ -1,15 +1,14 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { Router, Route, Switch } from "react-router-dom"
 import Cart from "./pages/Cart"
 import Home from "./pages/Home"
+import { history } from "./history"
 const App = () => {
   return (
     <>
-      <Router>
-        <Switch>
+      <Router history={history}>
           <Route exact path="/" component={Home} />
           <Route exact path="/cart" component={Cart} />
-        </Switch>
       </Router>
     </>
   )
