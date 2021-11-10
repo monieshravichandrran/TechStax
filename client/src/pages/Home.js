@@ -8,17 +8,19 @@ import { history } from "../history";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import {useSelector,useDispatch} from "react-redux"
 const Home = () => {
+    const state = useSelector((state) => state)
+    console.log(state);
     const dispatch = useDispatch()
-    const [m1, setM1] = useState(0);
-    const [m2, setM2] = useState(0);
-    const [m3, setM3] = useState(0);
-    const [m4, setM4] = useState(0);
-    const [m5, setM5] = useState(0);
-    const [r1, setR1] = useState(0);
-    const [r2, setR2] = useState(0);
-    const [r3, setR3] = useState(0);
-    const [r4, setR4] = useState(0);
-    const [r5, setR5] = useState(0);
+    const [m1, setM1] = useState(state.items.item1);
+    const [m2, setM2] = useState(state.items.item2);
+    const [m3, setM3] = useState(state.items.item3);
+    const [m4, setM4] = useState(state.items.item4);
+    const [m5, setM5] = useState(state.items.item5);
+    const [r1, setR1] = useState(state.items.rate1);
+    const [r2, setR2] = useState(state.items.rate2);
+    const [r3, setR3] = useState(state.items.rate3);
+    const [r4, setR4] = useState(state.items.rate4);
+    const [r5, setR5] = useState(state.items.rate5);
     const ClickHandler = (event) => {
         event.preventDefault()
         dispatch({
@@ -83,12 +85,14 @@ const Home = () => {
                                     <td class="justify-center md:justify-end md:flex mt-6">
                                         <div class="w-20 h-10">
                                             <div class="relative flex flex-row w-full h-8">
-                                                <button onClick={() => {
+                                                <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     if (m1 > 0) {
                                                         setM1(m1 - 1)
                                                         setR1((m1 - 1) * 206.00)
                                                     }
-                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m1} <button onClick={() => {
+                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m1} <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     setM1(m1 + 1)
                                                     setR1((m1+1)*206.00)
                                                 }}><AiFillPlusCircle className="ml-1 text-2xl"/></button>
@@ -117,12 +121,14 @@ const Home = () => {
                                     <td class="justify-center md:justify-end md:flex md:mt-4">
                                         <div class="w-20 h-10">
                                             <div class="relative flex flex-row w-full h-8">
-                                                <button onClick={() => {
+                                                <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     if (m2 > 0) {
                                                         setM2(m2 - 1)
                                                         setR2((m2 - 1) * 112.00)
                                                     }
-                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m2} <button onClick={() => {
+                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m2} <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     setM2(m2 + 1)
                                                     setR2((m2+1)*112.00)
                                                 }}><AiFillPlusCircle className="ml-1 text-2xl" /></button>
@@ -151,12 +157,14 @@ const Home = () => {
                                     <td class="justify-center md:justify-end md:flex md:mt-8">
                                         <div class="w-20 h-10">
                                             <div class="relative flex flex-row w-full h-8">
-                                                <button onClick={() => {
+                                                <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     if (m3 > 0) {
                                                         setM3(m3 - 1)
                                                         setR3((m3 - 1) * 409)
                                                     }
-                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m3} <button onClick={() => {
+                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m3} <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     setM3(m3 + 1)
                                                     setR3((m3+1)*409)
                                                 }}><AiFillPlusCircle className="ml-1 text-2xl" /></button>
@@ -186,12 +194,14 @@ const Home = () => {
                                     <td class="justify-center md:justify-end md:flex md:mt-8">
                                         <div class="w-20 h-10">
                                             <div class="relative flex flex-row w-full h-8">
-                                                <button onClick={() => {
+                                                <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     if (m4 > 0) {
                                                         setM4(m4 - 1)
                                                         setR4((m4 - 1) * 313)
                                                     }
-                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m4} <button onClick={() => {
+                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m4} <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     setM4(m4 + 1)
                                                     setR4((m4+1)*313)
                                                 }}><AiFillPlusCircle className="ml-1 text-2xl" /></button>
@@ -220,12 +230,14 @@ const Home = () => {
                                     <td class="justify-center md:justify-end md:flex md:mt-8">
                                         <div class="w-20 h-10">
                                             <div class="relative flex flex-row w-full h-8">
-                                                <button onClick={() => {
+                                                <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     if (m5 > 0) {
                                                         setM5(m5 - 1)
                                                         setR5((m5-1) * 176)
                                                     }
-                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m5} <button onClick={() => {
+                                                }}><AiFillMinusCircle className="text-2xl mr-1" /></button> {m5} <button onClick={(event) => {
+                                                    event.preventDefault()
                                                     setM5(m5 + 1)
                                                     setR5((m5+1)*176)
                                                 }}><AiFillPlusCircle className="ml-1 text-2xl" /></button>
