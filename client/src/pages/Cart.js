@@ -4,7 +4,23 @@ import { AiOutlinePlus } from "react-icons/ai"
 import FoodItem from "../component/FoodCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
+function loadScript(src) {
+  return new Promise((resolve) => {
+    const script = document.createElement('script')
+    script.src = src
+    script.onload = () => {
+      resolve(true)
+    }
+    script.onerror = () => {
+      resolve(false)
+    }
+    document.body.appendChild(script)
+  })
+}
 const Cart = () => {
+  window.onbeforeunload = function () {
+    return 'Are you sure you want to leave?';
+  }
   let id = 0;
   const state = useSelector((state) => state)
   let Subtotal=state.items.subtotal
@@ -42,6 +58,40 @@ const Cart = () => {
     }
   ]
   const [delivery, setDelivery] = useState(true);
+  const pressHandler=async()=> {
+    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+
+    if (!res) {
+      alert('Razorpay failed to load')
+      return
+    }
+    const data = await fetch('http://localhost:8000/razorpay', { method: 'POST' }).then((t) =>
+      t.json()
+    )
+
+    console.log(data)
+    const options = {
+      key: 'rzp_test_uGoq5ABJztRAhk',
+      currency: "INR",
+      amount: "5000",
+      order_id: "gcjbk",
+      name: 'Donation',
+      description: 'Thank you for nothing. Please give us some money',
+      image: '',
+      handler: function (response) {
+        alert(response.razorpay_payment_id)
+        alert(response.razorpay_order_id)
+        alert(response.razorpay_signature)
+      },
+      prefill: {
+        name: "yhvfih",
+        email: 'sdfdsjfh2@ndsfdf.com',
+        phone_number: '9899999999'
+      }
+    }
+    const paymentObject = new window.Razorpay(options)
+    paymentObject.open()
+  }
   if (delivery)
     return (
       <>
@@ -122,7 +172,7 @@ const Cart = () => {
                 <h1>Discount</h1>
               </div>
               <div className="flex float-right">
-                <h1 className="text-green-500">- &#8377; {Subtotal*0.15.toFixed(2)}</h1>
+                <h1 className="text-green-500">- &#8377; {(Subtotal*0.15).toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -142,7 +192,7 @@ const Cart = () => {
                 <h1>Taxes</h1>
               </div>
               <div className="flex float-right">
-                <h1>&#8377; {Subtotal*0.20.toFixed(2)}</h1>
+                <h1>&#8377; {(Subtotal*0.20).toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -157,7 +207,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <button className="butto bg-black w-full h-10 text-white font-mulish font-bold">PAY NOW</button>
+        <button className="butto bg-black w-full h-10 text-white font-mulish font-bold" onClick={pressHandler}>PAY NOW</button>
       </>
     )
   else {
@@ -242,7 +292,7 @@ const Cart = () => {
                 <h1>Discount</h1>
               </div>
               <div className="flex float-right">
-                <h1 className="text-green-500">- &#8377; {Subtotal*0.15.toFixed(2)}</h1>
+                <h1 className="text-green-500">- &#8377; {(Subtotal*0.15).toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -252,7 +302,7 @@ const Cart = () => {
                 <h1>Taxes</h1>
               </div>
               <div className="flex float-right">
-                <h1>&#8377; {Subtotal*0.20.toFixed(2)}</h1>
+                <h1>&#8377; {(Subtotal*0.20).toFixed(2)}</h1>
               </div>
             </div>
           </div>
@@ -262,12 +312,12 @@ const Cart = () => {
                 <h1 className="font-bold">Total</h1>
               </div>
               <div className="flex float-right font-bold">
-                <h1>&#8377; {1.05*Subtotal.toFixed(2)}</h1>
+                <h1>&#8377; {(1.05*Subtotal).toFixed(2)}</h1>
               </div>
             </div>
           </div>
         </div>
-        <button className="butto bg-black w-full h-10 text-white font-mulish font-bold">PAY NOW</button>
+        <button className="butto bg-black w-full h-10 text-white font-mulish font-bold" onClick={pressHandler}>PAY NOW</button>
       </>
     )
   }
